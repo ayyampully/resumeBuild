@@ -4,7 +4,7 @@ var nodemailer = require('nodemailer');
 var fs = require('fs')
 var MemoryStore = require('connect').session.MemoryStore;
 var easyimg = require('easyimage');
-var gm = require('gm').subClass({ imageMagick: true });;
+var gm = require('gm').subClass({ imageMagick: true });
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Import the data layer
@@ -24,14 +24,19 @@ app.configure(function(){
 	app.use(express.session({
 		secret: "resumeBuild key", store: new MemoryStore()
 	}));
-	if(env==='development'){
-		mongoose.connect('mongodb://localhost/resumeBuildDb');
-	}else{
-		mongoose.connect('mongodb://rohith:Rose@1991@ds037478.mongolab.com:37478/resumebuild');
-	}
+	
 	
 });
-
+if(env==='development'){
+	mongoose.connect('mongodb://localhost/resumeBuildDb');
+}else{
+	mongoose.connect('mongodb://rohith:Rose@1991@ds037478.mongolab.com:37478/resumebuild');
+}
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error...'));
+db.once('open', function callback() {
+  console.log('db opened');
+});
 app.get('/', function(req, res){
 	res.render("index.jade", {layout:false});
 });
