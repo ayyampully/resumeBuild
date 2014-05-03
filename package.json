@@ -5,6 +5,10 @@
   "description": "Node.js server for resumeBulid app",
   "main": "index.js",
   "author": "Rohith A",
+  "engines": {
+		"node": "0.10.x",
+		"npm": "1.3.x"
+  },
   "dependencies": {
 		"express": "~3.0.0",
 		"jade": ">= 0.0.1",

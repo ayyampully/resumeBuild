@@ -5,6 +5,7 @@ var fs = require('fs')
 var MemoryStore = require('connect').session.MemoryStore;
 var easyimg = require('easyimage');
 var gm = require('gm').subClass({ imageMagick: true });;
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Import the data layer
 var mongoose = require('mongoose');
@@ -23,7 +24,12 @@ app.configure(function(){
 	app.use(express.session({
 		secret: "resumeBuild key", store: new MemoryStore()
 	}));
-	mongoose.connect('mongodb://localhost/resumeBuildDb');
+	if(env==='development'){
+		mongoose.connect('mongodb://localhost/resumeBuildDb');
+	}else{
+		mongoose.connect('mongodb://rohith:Rose@1991@ds037478.mongolab.com:37478/resumebuild');
+	}
+	
 });
 
 app.get('/', function(req, res){
@@ -104,6 +110,7 @@ app.post('/imagecrop', function(req, res){
 		  function(err, image) {
 			 if (err) throw err;
 			 console.log('Resized and cropped: ' + image.width + ' x ' + image.height);
+			 res.send(200, 'Resized and cropped: ' + image.width + ' x ' + image.height);
 		});
 	}
 });
@@ -241,6 +248,6 @@ app.get('/resetsession', function(req, res) {
 });
 
 
-var port = 8080;
+var port = process.env.PORT || 8080;
 app.listen(port);
 console.log('Server is at port:'+port)
