@@ -37,7 +37,7 @@ define(
                     var resp = $.parseJSON(resp);
                     console.log(resp.priSkill)
 
-                    $('#content').html(myAccountTemplate);
+                    $('#content').html(myAccountTemplate(resp));
                    /* o_this.utils.getTheme('myaccount',function(template){
                         var template = _.template(template, resp);
                         $('#content').html(template);

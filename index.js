@@ -30,7 +30,7 @@ app.get('/', function(req, res){
 	res.render("index.jade", {layout:false});
 });
 
-app.post('/imagecrop', function(req, res){
+/* app.post('/imagecrop', function(req, res){
 
 	var width = req.body.imgWidth;
 	var height = req.body.imgHeight;
@@ -50,14 +50,14 @@ app.post('/imagecrop', function(req, res){
 		  var writeStream = fs.createWriteStream(__dirname + "/public/uploads/profile_new.jpg");
 		  console.log(writeStream)
 		  stdout.pipe(writeStream);
-		});*/
+		});
 		gm(readStream, 'profile_rohith_a.jpg').crop(cropwidth, cropheight, x, y).write(req.session.src, function (err) {
 		  if (err) console.log(err);
 		  console.log('Created an image from a Buffer!');
 		});
 		
 	}
-});
+}); */
 
 app.post('/imageupload', function(req, res){
 	var image = req.files.displayImage;
@@ -81,7 +81,7 @@ app.post('/imageupload', function(req, res){
 	});
 	
 });
-/*
+
 app.post('/imagecrop', function(req, res){
 
 	var width = req.body.imgWidth;
@@ -107,7 +107,7 @@ app.post('/imagecrop', function(req, res){
 		});
 	}
 });
-*/
+
 app.post('/login', function(req, res) {
 	console.log('login request');
 	var username = req.param('username', null);
@@ -141,7 +141,6 @@ app.post('/register', function(req, res) {
 		return;
 	}
 	Account.register(username, email, password, firstName, lastName, mobile, website, function(data, err){
-	console.log(data)
 		if(data){
 			if(err=="emailExists"){
 				res.send(400, 'Email already exists');
@@ -165,7 +164,6 @@ app.post('/updateuser', function(req, res) {
 	var photoUrl = req.param('photoUrl', '');
 	var website = req.param('website', '');
 	var priSkill = req.param('priSkill', null);
-	console.log(priSkill)
 	if ( null != username && null != firstname && null != lastname) {
 		Account.updateUser(username, firstname, lastname, mobile, website, title, company, photoUrl, priSkill, function(){
 			res.send(200);
@@ -177,7 +175,6 @@ app.post('/updateuser', function(req, res) {
 app.post('/updateresume', function(req, res) {
 	var username = req.param('username', null);
 	var resume = req.param('resume', null);
-	console.log(resume)
 	
 	if ( null != username && null != resume) {
 		Account.updateResume(username, resume, function(){
