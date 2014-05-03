@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ResumeBuild</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="screen">
+    <script src="js/libs/plugins.js"></script>
+    <script src="js/libs/tinymce/tinymce.min.js"></script>
+    <script src="js/libs/handlebars.js"></script>
+    <script data-main="js/app" src="js/libs/require.js"></script>
+</head>
+<body>
+<header class="main">
+    <div class="wrap">
+        <div class="logo"><img src="images/resume_bulid.png" alt="Logo"></div>
+    </div>
+</header>
+<section class="container home" id="content">
+    <div class="wrap">
+        <section class="col left spinner">
+            <div class="temp-thumb" id="blue-chip">
+                <img src="images/blue-chip.png"/>
+            </div>
+        </section>
+        <section class="col right spinner" id="edit-view">
+            <p id="msgs">Click on the fields to edit</p>
+            <textarea id="text-edit" cols="30" rows="15" name="label"></textarea>
+
+            <div class="button-area">
+                <a class="btn save">Save</a>
+                <a class="btn cancel">Cancel</a></div>
+        </section>
+    </div>
+</section>
+<footer>
+    <div class="wrap"></div>
+</footer>
+
+</body>
+</html>

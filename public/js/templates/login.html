@@ -1,0 +1,61 @@
+<div class="wrap">
+
+ <ul id="tabBar"><li id="login" class="act">Login</li><li id="register" >Register</li></ul>
+<div class="formWrap">
+    <form method="post" action="/login" id="login-form" class="forms">
+        <div class="row">
+            <label for="u_name">Username</label>
+            <input type="text" name="u_name" id="u_name" placeholder="Enter your username" />
+        </div>
+        <div class="row">
+            <label for="p_word">Password</label>
+            <input type="password" name="p_word" id="p_word" placeholder="Enter your password" />
+        </div>
+
+        <div class="row">
+            <div class="button-area">
+                <input type="submit" id="login-btn" class="btn save" value="Login"/>
+            </div>
+        </div>
+    </form>
+    <form method="post" action="/register" id="register-form" class="forms">
+        <div class="row">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Enter your username" />
+        </div>
+        <div class="row">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter your password" />
+        </div>
+        <div class="row">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" placeholder="Enter your email address" />
+        </div>
+        <div class="row">
+            <label for="email_confirm">Confirm email</label>
+            <input type="text" name="email_confirm" id="email_confirm" placeholder="Confirm your email address" />
+        </div>
+        <div class="row">
+            <label for="firstname">First name</label>
+            <input type="text" name="firstname" id="firstname" placeholder="Enter your first name" />
+        </div>
+        <div class="row">
+            <label for="lastname">Last name</label>
+            <input type="text" name="lastname" id="lastname" placeholder="Enter your last name" />
+        </div>
+        <div class="row">
+            <label for="mobile">Mobile</label>
+            <input type="text" name="mobile" id="mobile" placeholder="Enter your mobile no" />
+        </div>
+        <div class="row">
+            <label for="website">Website</label>
+            <input type="text" name="website" id="website" placeholder="Enter your website address" />
+        </div>
+        <div class="row">
+            <div class="button-area">
+                <input type="submit" id="register-btn" class="btn save" value="Register" />
+            </div>
+        </div>
+    </form>
+</div>
+</div>

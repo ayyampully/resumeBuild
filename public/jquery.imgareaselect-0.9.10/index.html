@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/imgareaselect-default.css" />
+    <script type="text/javascript" src="scripts/jquery.min.js"></script>
+    <style>
+        #photo{max-width: 800px}
+    </style>
+    <script type="text/javascript" src="scripts/jquery.imgareaselect.pack.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('img#photo').imgAreaSelect({
+                handles: true,
+                aspectRatio:'190:225',
+
+                onSelectChange: function(img, selection) {
+
+                    var scaleX = 190 / (selection.width || 1);
+                    var scaleY = 225 / (selection.height || 1);
+
+                    $('#photo + div > img').css({
+                        width: Math.round(scaleX * img.width) + 'px',
+                        height: Math.round(scaleY * img.height) + 'px',
+                        marginLeft: '-' + Math.round(scaleX * selection.x1) + 'px',
+                        marginTop: '-' + Math.round(scaleY * selection.y1) + 'px'
+                    });
+                },
+
+                onSelectEnd: function(img, selection){
+                    //console.log('width: ' + selection.width + '; height: ' + selection.height);
+                }
+            });
+
+            $('<div><img src="204877.jpg" style="position: relative;" /><div>')
+                    .css({
+                        float: 'left',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        width: '190px',
+                        height: '225px'
+                    })
+                    .insertAfter($('#photo'));
+        });
+    </script>
+</head>
+<body>
+<img src="204877.jpg" id="photo" />
+</body>
+</html>

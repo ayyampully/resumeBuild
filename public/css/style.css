@@ -1,0 +1,388 @@
+/* Reset modified */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, font, img, ins, kbd, q, s, samp, small, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+
+.flLeft {
+	float:left
+}
+.flRight {
+	float:right
+}
+.mt0 {margin-top:0px!important}
+.mr0 {margin-right:0px!important}
+.mb0 {margin-bottom:0px!important}
+.ml0 {margin-left:0px!important}
+.pt0 {padding-top:0px!important}
+.pr0 {padding-right:0px!important}
+.pb0 {padding-bottom:0px!important}
+.pl0 {padding-left:0px!important}
+/* page */
+@font-face {
+    font-family: 'LatoRegular';
+    src: url('../fonts/Lato-Reg-webfont.eot');
+    src: url('../fonts/Lato-Reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Lato-Reg-webfont.woff') format('woff'),
+         url('../fonts/Lato-Reg-webfont.ttf') format('truetype'),
+         url('../fonts/Lato-Reg-webfont.svg#LatoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'LatoItalic';
+    src: url('../fonts/Lato-RegIta-webfont.eot');
+    src: url('../fonts/Lato-RegIta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Lato-RegIta-webfont.woff') format('woff'),
+         url('../fonts/Lato-RegIta-webfont.ttf') format('truetype'),
+         url('../fonts/Lato-RegIta-webfont.svg#LatoItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatoBold';
+    src: url('../fonts/Lato-Bol-webfont.eot');
+    src: url('../fonts/Lato-Bol-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Lato-Bol-webfont.woff') format('woff'),
+         url('../fonts/Lato-Bol-webfont.ttf') format('truetype'),
+         url('../fonts/Lato-Bol-webfont.svg#LatoBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatoLight';
+    src: url('../fonts/Lato-Lig-webfont.eot');
+    src: url('../fonts/Lato-Lig-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Lato-Lig-webfont.woff') format('woff'),
+    url('../fonts/Lato-Lig-webfont.ttf') format('truetype'),
+    url('../fonts/Lato-Lig-webfont.svg#LatoBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body {
+	font-family:'LatoRegular', Arial, sans-serif;
+	font-size:13px;
+	line-height:20px;
+	color:#8d8d8d;
+	background:#9bd746;
+}
+input[type="text"], input[type="textarea"], input[type="button"], input[type="submit"] {
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+a{color:#a0c118; 
+-moz-transition:all 0.3s ease-in ; 
+-webkit-transition:all 0.3s ease-in ; 
+-o-transition:all 0.3s ease-in ; 
+-ms-transition:all 0.3s ease-in ; 
+transition:all 0.3s ease-in ; text-decoration:none}
+a:hover{color:#c0e138;}
+input{-moz-transition:all 0.3s ease-in ;
+    -webkit-transition:all 0.3s ease-in ;
+    -o-transition:all 0.3s ease-in ;
+    -ms-transition:all 0.3s ease-in ; }
+input:focus{
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3)inset;
+}
+input[type='text'],input[type='password']{float: left; width: 253px; padding: 7px 15px; border-radius:0px; border: 1px solid #ccc; color: #8D8D8D}
+/**************************** theme ***********************/
+.blue, .blue:hover{color: #418ab3}
+.bg-blue{background: #418ab3; color: #fff}
+#resume.blue-template .row{border-top: 1px solid #418ab3; margin-top:10px }
+
+#resume.blue-template .row.first{border-top: none; margin-top:0px}
+#resume.blue-template .row label{float: left; width: 25%; margin-right: 5%; text-transform: uppercase; color: #418ab3; text-align: right;}
+#resume.blue-template .row p, #resume.blue-template .row ul{float: left; width: 70%; }
+#resume.blue-template .row li{list-style: none;}
+/**************************** main styles **************************/
+#header, #footer{float: left; width: 100%}
+div.wrap{width:960px; margin: 0 auto; position: relative}
+#header{ min-height: 185px; position: relative; border-bottom: 1px solid #62A404;}
+#header .logo{width: 458px; height: 58px; float: left; margin-top: 77px}
+
+div.container{float: left; width: 100%; padding: 40px 0; background: #f9f9f9; min-height: 430px;}
+div.container section.col{border:#e0e0e0 1px solid; padding: 20px; background: #fff}
+div.container .left{float: left; width: 568px; margin-right: 19px}
+div.container .right{float: left; width: 288px}
+div.container .spinner{position: relative}
+#spinner{background: none repeat scroll 0 0 #FFFFFF;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0; }
+#spinner img {
+    left: 46%;
+    position: absolute;
+    top: 44%;
+}
+#resume{width: 100%; float: left; font-size: 16px;}
+#resume .edit{cursor: pointer}
+#resume p{width: 100%; float: left; line-height: 18px}
+#resume h1{width: 96%; padding:5px 2% 2px; float: left; margin: 10px 0; font-size: 18px; text-transform: uppercase;}
+#resume .row{width: 100%; float: left; padding: 20px 0 10px;position: relative;}
+.toolbar{position: absolute; right: 0; bottom: -05px;}
+.toolbar span{background: url("../images/icons.png") 0 0 no-repeat; text-indent: -9999px; float: left; width: 16px; height: 16px; margin-left: 5px; cursor: pointer;}
+.toolbar .add{background-position: -26px 0;}
+.toolbar .remove{background-position: -2px 0;}
+.toolbar .move-up{}
+#edit-view{position: relative;}
+
+#edit-view #text-edit{display: none}
+#edit-view #msgs{margin-bottom: 10px}
+#edit-view .button-area{display: none; margin-top: 20px}
+.button-area{float: right;}
+.btn{background: #97ce48; border: 1px solid #6fb807; padding: 5px 15px 3px; float: left; color: #fff; cursor: pointer;margin-left: 20px;}
+.btn:hover{background: #6fb807; color: #fff;}
+.btn.cancel{ background: #f23908; border: 1px solid #cc2e04;}
+.btn.cancel:hover{background: #cc2e04;}
+/*********************/
+#content.home .left{float: left; width: 100%; margin-right: 0px; background: none; padding: 0; border: none}
+#content.home .right{display: none}
+
+#content.home .temp-thumb {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #9bd746;
+    float: left;
+    padding: 10px;
+    width: 206px;
+    -moz-transition:all 0.3s ease-in ;
+    -webkit-transition:all 0.3s ease-in ;
+    -o-transition:all 0.3s ease-in ;
+    -ms-transition:all 0.3s ease-in ;
+    transition:all 0.3s ease-in ;
+}
+#content.home .temp-thumb:hover{
+    background: none repeat scroll 0 0 #9bd746;
+    border: 1px solid #9bd746;
+}
+#content.home .temp-thumb img {
+    float: left;
+}
+#content .make-bold{font-weight: bold !important;}
+
+.simplePopup, .simpleAlert{  height:auto; margin-bottom:15px; width:752px; left: 24%; position:fixed;  background:#F6F6F6;z-index:99999; box-shadow: 0 0 10px #000; top:100px}
+.simplePopup .popupHead,.simpleAlert .popupHead{float:left; position:relative; width:100%;background: #9bd746;
+    border-bottom:1px solid #85a503}
+.simplePopup .popupHead h2,.simpleAlert .popupHead h2{
+    color: #FFFFFF;
+    float: left;
+    font-size: 14px;
+    font-family: 'latoregular';
+    padding: 4px 0 2px;
+    margin-left: 15px;
+}
+.simplePopup .popupHead .close,.simpleAlert .popupHead .close{position:absolute; right:8px;cursor:pointer; top:5px; background:url(../images/close.gif) 50% 50%; width:16px; height:16px;}
+.simplePopup .popupBody,.simpleAlert .popupBody{padding: 20px 0; float: left;}
+.simplePopup .popupBody .img-wrap{float: left; margin-left: 20px; border: 1px solid #CCCCCC;}
+.simplePopup .popupBody .row,.simpleAlert .popupBody .row{float: left; width: 359px; padding: 0 20px; margin-bottom: 20px;}
+.simplePopup .popupBody label{float: left; width: 73px; padding: 4px 0;}
+
+#popupScreen{position:fixed; background:url(../images/popbg.png); top:0; bottom:0; left:0; right:0; z-index: 99998;}
+.simplePopup .popupBody .form-caption {
+    float: left;
+    margin: 0 0 35px 20px;
+}
+.simpleAlert{width: 420px; left: 37%; top: 35%;}
+.simpleAlert .popupBody .row{width: 380px;}
+#footer p{color: #fff; margin: 5px 0;}
+#footer{border-top: 1px solid #62A404;}
+
+#header .menuWrap {
+    background: #62a404;
+    left: 0;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+#header .menuWrap ul{float: right}
+#header .menuWrap li {
+    border-left: 1px solid #fff;
+    float: left;
+    line-height: 14px;
+    margin-left: 5px;
+    padding-left: 5px;
+    color: #fff
+}
+#header .menuWrap li span{cursor: pointer; }
+#header .menuWrap li#user-account span{font-family: 'latobold';}
+#header .menuWrap li:first-child{border-left:0}
+#content #tabBar{float: left; left:250px; top: 0; position: absolute;}
+#content #tabBar li{float: left; padding: 7px 30px; margin-right: 7px; background: #a0d751; color: #ffffff; cursor: pointer}
+#content #tabBar li.act{border: 1px solid #62A404; border-bottom: 0; background: #fff; padding: 7px 30px; color: #62A404}
+#content .formWrap{float: left; width: 378px; margin-left:250px; clear: both; color: #62A404; background: #fff; border: 1px solid #62A404; padding: 40px; margin-top: 34px;}
+#content .formWrap #register-form{display: none;}
+#content .formWrap .row{float: left; width: 100%; padding-top:20px; position: relative }
+#content .formWrap .row:first-child{padding: 0}
+#content .formWrap input{
+    padding: 9px 15px;
+    width: 345px;}
+#content .formWrap label.error {color: red;font-size: 11px;left: 1px;position: absolute;bottom: -16px;width: auto !important;}
+#content .formWrap input[type="submit"]{padding: 9px 25px!important; width: auto!important;}
+
+#my-account{float: left; width: 100%;}
+#my-account .top-block{float: left; width: 900px; border: 1px solid #ccc; padding: 29px; background: #fff;
+    min-height: 190px; margin-top: 35px; position: relative}
+#my-account .top-block .photo-wrap{background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 14px;
+    position: absolute;
+    right: 35px;
+    top: -35px;}
+#my-account .top-block .photo-wrap img{float: left}
+
+#my-account .top-block .details-wrap{float: left; width: 680px;}
+#my-account .top-block .details-wrap .details-col{float: left; width: 50%; min-height: 190px;
+    position: relative;}
+#my-account .top-block .details-wrap h2{font-size: 24px; color: #6fb807; float: left; width: 100%; font-family: 'latobold';}
+#my-account .top-block .details-wrap h3{font-size: 18px; color: #6fb807; float: left; width: 100%; margin-top: 5px;}
+#my-account .top-block .details-wrap .contact{bottom: 0; left: 0; position: absolute;}
+
+#my-account .top-block .details-wrap p{font-size: 18px; color: #6fb807; float: left; width: 100%; }
+#my-account .top-block .details-wrap p a{font-size: 18px; color: #6fb807; float: left; margin-top: 5px;}
+#my-account .top-block .details-wrap p a:hover{color: #9bd746}
+
+#my-account #skillWrap{ float:left; width:100%; }
+#my-account #skillWrap h2{font-size:20px!important;margin-bottom: 10px;}
+#my-account #skillWrap .skillMeter{ float:left; width:100%; position:relative;}
+#my-account #skillWrap .skillMeter p{ font-size:14px; color:#888888; }
+#my-account #skillWrap .skillMeter .skill{position:relative; width:80%; height:13px; background:#828282;float:left; max-width:340px; border: 1px solid #6fb807;}
+#my-account #skillWrap .skillMeter .skill span{position:absolute; width:0; height:13px; background:#9bd746; left:0}
+#my-account #skillWrap .skillMeter label{color:#888888; font-size:14px;margin-left: 7px; float:left}
+
+#my-account .button-area{margin-right: 24px; margin-top: 215px;}
+
+#my-account .detailed-resume{
+    margin-top: 30px;
+    float: left;
+    padding: 40px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+/**************** account edit ****************/
+#my-account.edit .top-block .details-wrap{width: 100%}
+#my-account.edit .top-block .photo-wrap {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: medium none;
+    float: left;
+    left: 0;
+    padding: 14px;
+    position: relative;
+    top: 0;
+    text-align: center;
+    padding-bottom: 0;
+    width: 152px;
+}
+#my-account.edit .top-block .photo-wrap span{
+    border: 1px solid #ddd;
+    float: left;}
+#my-account.edit .top-block .photo-wrap a{
+    display: block;
+    clear: both;
+}
+#my-account.edit .top-block h2.info{color: #6FB807;
+    float: left;
+    font-family: 'latobold';
+    font-size: 24px;
+    padding: 20px 2% 30px;
+    width: 96%;}
+#my-account.edit .top-block h2.info span{font-size:16px; color:#888888; font-family: 'latoregular';}
+#content .edit .formWrap {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: none;
+    clear: none;
+    color: #62A404;
+    float: left;
+    margin-left: 29px;
+    margin-top: 0px;
+    padding: 15px 40px 40px;
+    width: 525px;
+}
+#content .edit .formWrap label{
+    float: left;
+    margin: 10px 0 0;
+    width: 145px;
+}
+#my-account.edit .button-area{margin: 0}
+
+#imageForm{float: left; position: relative; margin-left: 46px;}
+#imageForm #profileImage{float: left;
+width: 65px;
+position: absolute;
+left: 0;
+cursor: pointer;
+top: 0;
+opacity: 0;}
+
+#userPhoto{float: left; max-width: 550px;}
+#previewImage{float: left;
+position: relative;
+overflow: hidden;
+width: 190px;
+height: 225px;
+    border: 1px solid #ccc;
+    margin-left: 25px;}
+
+#addPhotoPopup{width: 810px;}
+#addPhotoPopup .row{width: 770px;}
+
+#my-account.edit h3.info{margin: 25px 0 0;
+    border: 1px dotted #ccc;
+    border-left: 0;
+    border-right: 0;
+    padding: 10px 0;
+    text-align: right;
+}
+#content .formWrap .pri-skill{float: left;
+    width: 100%; position: relative; margin-top: 10px;}
+#content .formWrap .pri-skill:first-child{margin-top: 0}
+#content .formWrap .pri-skill label{width: 20px;
+    font-size: 16px;
+    margin-top: 8px;}
+#content .formWrap .pri-skill input{padding: 5px 10px;
+    width: 250px;}
+#content .formWrap .pri-skill select{height: 30px;
+    border: 1px #ccc solid;
+    color: #aaa;
+    float: left;
+    width: 150px;
+    margin-left: 15px;}
+#content .formWrap .pri-skill .toolbar{bottom: 9px;
+    right: 15px; display: none}
+#content .formWrap .pri-skill:hover > .toolbar{display: block}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="js/libs/plugins.js"></script>
+    <script type="text/javascript" >
+
+$(document).ready(function(){
+    $('#file').change(function(e){
+        $(e.target.files).each(function(){
+
+            if(this.name=="."){
+                var path = this.webkitRelativePath
+                path = path.split('/');
+                var i = path.length-2
+                $('body').append('<p>'+path[i]+'</p>')
+            }
+        })
+    })
+})
+    </script>
+</head>
+<body>
+<input id="file" type="file" webkitdirectory>
+</body>
+</html>
