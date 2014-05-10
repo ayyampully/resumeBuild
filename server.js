@@ -30,7 +30,7 @@ app.configure(function(){
 if(env==='development'){
 	mongoose.connect('mongodb://localhost/resumeBuildDb');
 }else{
-	mongoose.connect('mongodb://rohith:Rose@1991@ds037478.mongolab.com:37478/resumebuild');
+	mongoose.connect('mongodb://rohith_a:Rose1991@ds037478.mongolab.com:37478/resumebuild');
 }
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error...'));
