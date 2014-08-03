@@ -1,7 +1,7 @@
 define([
     'app',
-    'utils/utils_views'
-],function(App){
+    'hbs!templates/user-form'
+],function(App, UserForm){
     var resumeUtils = Backbone.View.extend({
         initialize: function(){
             _.bindAll(this.events)
@@ -12,7 +12,7 @@ define([
         getTheme: function(id,successCallback){
             var theme;
             $.ajax({
-                url:'js/templates/'+id+'.html',
+                url:'app/js/templates/resumes/'+id+'.html',
                 type: 'GET',
                 dataType:'html',
                 success: successCallback
@@ -44,10 +44,10 @@ define([
             return content;
         },
         showForm:function(id){
-           /* var template = Handlebars.templates['utils-views.hb']({
+           var template = UserForm({
                 src : id
             });
-            return template;*/
+            return template;
         },
         showWait: function(id){
             var spinner = '<div id="spinner"><img src="images/loader.gif" /></div>'

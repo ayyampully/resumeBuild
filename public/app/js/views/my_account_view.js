@@ -1,9 +1,10 @@
 define(
     [
         'utils/resume_utils',
+        'views/my_account_edit_view',
         'hbs!templates/myaccount'
     ],
-    function(ResumeUtils, myAccountTemplate){
+    function(ResumeUtils, MyAccountEditView, myAccountTemplate){
 
         var MyAccountView = Backbone.View.extend({
 
@@ -40,7 +41,7 @@ define(
                     $('#content').html(myAccountTemplate(resp));
                    /* o_this.utils.getTheme('myaccount',function(template){
                         var template = _.template(template, resp);
-                        $('#content').html(template);
+                        $('#content').html(template);*/
                         if(!o_this.model.get('username')){
                             $('#my-account .button-area').remove();
                         }
@@ -58,10 +59,11 @@ define(
                             $(".skill",this).find('span').animate({width:percent+'%'},{queue:false, duration:600, easing: 'linear'})
                         })
                     });
-*/
 
 
-                });
+
+
+
 
                 this.delegateEvents(this.events);
             },
@@ -69,7 +71,10 @@ define(
             editAccount: function(e){
                 e.preventDefault();
                 console.log(this.model)
-                this.utils.setAppURL('user/'+ this.model.get('username') +'/edit');
+                var myAccountEditView = new MyAccountEditView({
+                    model: this.model
+                });
+                myAccountEditView.render();
             },
 
             publicView: function(){

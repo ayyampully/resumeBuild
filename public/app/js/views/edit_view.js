@@ -26,18 +26,21 @@ define([
                 model: this.model
             });
             var tempId = this.model.get('tempId');
-console.log(this.model)
+console.log(o_this.model.toJSON())
+            $('#content').removeClass('home');
             if(this.model.get('username')){
                 var data = {
                     username: this.model.get('username')
                 }
                 this.utils.getUser(data, function(resp){
                     var resp = $.parseJSON(resp)
-                    $('#content').removeClass('home');
                     $('#content .left').html(resp.resume);
                 });
             } else {
-
+                this.utils.getTheme(tempId, function(data){
+                    var template = _.template(data,(o_this.model.toJSON()));
+                    $('#content .left').html(template);
+                })
             }
 
             if(this.utils.getSession()){
@@ -97,7 +100,7 @@ console.log(this.model)
         showToolbar: function(evt){
             var elem = $(evt.currentTarget);
 
-            var toolbar = '<div id="toolbar"><span class="add">Add row</span><span class="remove">Remove row</span></div>';
+            var toolbar = '<div id="toolbar" class="toolbar"><span class="add">Add row</span><span class="remove">Remove row</span></div>';
             //if($('#toolbar', elem).length){
                $('#toolbar').remove();
            // }else{

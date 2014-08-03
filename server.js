@@ -1,10 +1,11 @@
-var express = require('express');
-var app = express();
-var nodemailer = require('nodemailer');
-var fs = require('fs')
-var MemoryStore = require('connect').session.MemoryStore;
-var easyimg = require('easyimage');
-var gm = require('gm').subClass({ imageMagick: true });
+var express = require('express'),
+	app = express(),
+	nodemailer = require('nodemailer'),
+	fs = require('fs'),
+	MemoryStore = require('connect').session.MemoryStore,
+	easyimg = require('easyimage'),
+	gm = require('gm').subClass({ imageMagick: true });
+
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Import the data layer
@@ -105,9 +106,11 @@ app.post('/imagecrop', function(req, res){
 	if(width==0 || height==0){
 		res.send(400)
 	} else {
-		easyimg.crop({
+		easyimg.rescrop({
 				 src: req.session.src,
 				 dst: req.session.src,
+				 width:190,
+				 height:225,
 				 cropwidth: cropwidth,
 				 cropheight: cropheight,
 				 x: x, y: y

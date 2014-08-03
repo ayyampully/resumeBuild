@@ -4,9 +4,10 @@ define([
     'views/edit_view',
     'utils/resume_utils',
     'views/login_view',
-    'views/my_account_view'
+    'views/my_account_view',
+    'hbs!templates/index'
 
-],function(Edit, EditResumeView, ResumeUtils, LoginView, MyAccountView){
+],function(Edit, EditResumeView, ResumeUtils, LoginView, MyAccountView, homeViewTemplate){
 
     var HomeView = Backbone.View.extend({
         el: "body",
@@ -28,6 +29,7 @@ define([
         },
 
         render: function(){
+                console.log('m here')
             if(!this.model){
                 var editModel = new Edit();
                 this.model = editModel;
@@ -37,16 +39,18 @@ define([
                 model: this.model
             });
 
-            this.utils.getTheme('index',function(template){
-                $('#content').html(template);
-            });
+            
+            $('#content').html(homeViewTemplate);
             $('#content').addClass('home')
             this.utils.getSession();
 
         },
 
         showLogin: function(){
-            this.utils.setAppURL('user/login');
+            var loginView = new LoginView({
+                model: this.model
+            });
+            loginView.render();
         },
 
         logOutUser: function(){
@@ -75,7 +79,11 @@ define([
 
         showAccount: function(e){
             e.preventDefault();
-            this.utils.setAppURL('user/'+ this.model.get('username'));
+            console.log(this.model)
+            var myAccountView = new MyAccountView({
+                model: this.model
+            });
+            myAccountView.render();
         },
 
         saveForm: function(evt){
@@ -91,7 +99,10 @@ define([
                     mobile: mobile,
                     website : website
                 });
-                this.utils.setAppURL('template/'+this.model.get('tempId')+'/edit');
+                var editResumeView = new EditResumeView({
+                    model: this.model
+                });
+                editResumeView.render();
             } else {
                 alert('Fill in all the fields')
             }

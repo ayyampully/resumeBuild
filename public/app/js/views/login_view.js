@@ -77,6 +77,7 @@ define(
                             o_this.utils.logUser(data,function(data){
                                 o_this.utils.alertMsg(data);
                                 o_this.flag = 'login';
+                                console.log(data)
                                 o_this.model.set({username: username});
 
                             }, function(err){

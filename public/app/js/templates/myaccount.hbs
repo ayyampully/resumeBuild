@@ -16,23 +16,12 @@
             <div class="details-col">
                 <div id="skillWrap">
                     <h2>Skill Sets</h2>
-
-                    <div class="skillMeter">
-                        <p>HTML and CSS</p>
-                        <div class="skill"><span></span></div><label class="value"><span >9</span>/10</label>
-                    </div>
-                    <div class="skillMeter">
-                        <p>Photoshop</p>
-                        <div class="skill"><span></span></div><label class="value"><span >9</span>/10</label>
-                    </div>
-                    <div class="skillMeter">
-                        <p>JavaScript and JQuery</p>
-                        <div class="skill"><span></span></div><label class="value"><span >7</span>/10</label>
-                    </div>
-                    <div class="skillMeter">
-                        <p>Responsive Design</p>
-                        <div class="skill"><span></span></div><label class="value"><span >8</span>/10</label>
-                    </div>
+                    {{#each priSkill}}
+                        <div class="skillMeter">
+                            <p>{{this.skill}}</p>
+                            <div class="skill"><span></span></div><label class="value"><span >{{this.level}}</span>/10</label>
+                        </div>
+                    {{/each}}
                 </div>
             </div>
         </div>

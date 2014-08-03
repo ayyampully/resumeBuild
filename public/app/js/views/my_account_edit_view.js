@@ -1,10 +1,11 @@
 define(
     [
         'utils/resume_utils',
+        'hbs!templates/myaccount-edit',
         'libs/imageSelect/scripts/jquery.imgareaselect.pack'
     ],
 
-    function(ResumeUtils){
+    function(ResumeUtils, myAccountEditTemplate){
 
         var MyAccountEditView = Backbone.View.extend({
 
@@ -45,11 +46,13 @@ define(
                 }
                 console.log(this.model)
                 this.utils.getUser(data, function(resp){
-                    o_this.utils.getTheme('myaccount-edit',function(template){
+                   /* o_this.utils.getTheme('myaccount-edit',function(template){
                         var template = _.template(template);
-                        $('#content').html(template($.parseJSON(resp)));
-                        $('#content .edit-foto').hide();
-                    });
+
+                    });*/
+                    $('#content').html(myAccountEditTemplate($.parseJSON(resp)));
+                    $('#content .edit-foto').hide();
+
                 }, function(err){
                     $('#content').html('<p class="err">Please login to edit your account</p>');
                 });
@@ -237,11 +240,11 @@ define(
                 }
                 var html = '<div class="pri-skill"><label>'+(len+1)+'</label><input type="text" min="3" max="30" class="skill-input noValidate" placeholder="Add your skill">'+
                                ' <select class="expertise noValidate">' +
-                                   '<option selected>Beginner</option>' +
-                                   '<option>Intermediate</option>' +
-                                   '<option>Advanced</option>' +
-                                   '<option>Expert</option>' +
-                                   '<option>Master</option>' +
+                                   '<option value="3" selected>Beginner</option>' +
+                                   '<option value="5" >Intermediate</option>' +
+                                   '<option value="7" >Advanced</option>' +
+                                   '<option value="9" >Expert</option>' +
+                                   '<option value="10" >Master</option>' +
                                    '</select>';
                 if(len==3){
                     html+='<div class="toolbar"><span class="remove">Remove row</span></div>'
