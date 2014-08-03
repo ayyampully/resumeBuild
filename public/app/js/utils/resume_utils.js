@@ -1,7 +1,8 @@
 define([
     'app',
-    'hbs!templates/user-form'
-],function(App, UserForm){
+    'hbs!templates/user-form',
+    'hbs!templates/alert'
+],function(App, UserForm, AlertMsgTemplate){
     var resumeUtils = Backbone.View.extend({
         initialize: function(){
             _.bindAll(this.events)
@@ -57,20 +58,18 @@ define([
             });
         },
 
-        alertMsg: function(msg, callback){
-            this.getTheme('alert',function(template){
-                var template = _.template(template);
-                $('#content').append(template({
-                    msg: msg
-                }));
-            });
+        alertMsg: function(message, callback){
+
+            $('#content').append(AlertMsgTemplate({
+                message: message
+            }));
+            
         },
 
         regUser: function(data, successCallback, errorCallback){
             $.ajax({
                 url: '/register',
                 type: 'POST',
-                dataType:'html',
                 data: data,
                 success: successCallback,
                 error: errorCallback
@@ -80,7 +79,6 @@ define([
             $.ajax({
                 url: '/login',
                 type: 'POST',
-                dataType:'html',
                 data: data,
                 success: successCallback,
                 error: errorCallback
@@ -90,7 +88,6 @@ define([
             $.ajax({
                 url: '/getuser',
                 type: 'POST',
-                dataType:'html',
                 data: data,
                 success: successCallback,
                 error: errorCallback
@@ -101,7 +98,6 @@ define([
             $.ajax({
                 url: '/updateuser',
                 type: 'POST',
-                dataType:'html',
                 data: data,
                 success: successCallback,
                 error: errorCallback
@@ -157,9 +153,12 @@ define([
 
         },
 
-        setAppURL: function(route){
-            //window.location.href = 'http://localhost:8080/#/'+route;
-            Backbone.history.navigate(route, {trigger: true});
+        setAppURL: function(route, trigger){
+            var setTrigger = true;
+            if(trigger === 'false'){
+                setTrigger = false
+            }
+            Backbone.history.navigate(route, {trigger: setTrigger});
         }
     });
     return resumeUtils;

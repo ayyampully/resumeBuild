@@ -41,21 +41,16 @@ define(
                     model : this.model
                 });
                 var o_this = this;
-                var data = {
-                    username: this.model.get('username')
-                }
+                
                 console.log(this.model)
-                this.utils.getUser(data, function(resp){
-                   /* o_this.utils.getTheme('myaccount-edit',function(template){
-                        var template = _.template(template);
+                if(this.model.get('username')){
 
-                    });*/
-                    $('#content').html(myAccountEditTemplate($.parseJSON(resp)));
+                    $('#content').html(myAccountEditTemplate(this.model.toJSON()));
                     $('#content .edit-foto').hide();
 
-                }, function(err){
+                } else {
                     $('#content').html('<p class="err">Please login to edit your account</p>');
-                });
+                }
 
                 this.delegateEvents(this.events);
             },

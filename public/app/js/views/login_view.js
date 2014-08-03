@@ -2,11 +2,12 @@ define(
     [
         'models/edit_model',
         'utils/resume_utils',
-        'views/home_view',
+        'views/my_account_view',
         'views/my_account_edit_view',
+        'hbs!templates/login',
         'libs/jquery.validate.min'
     ],
-    function(Edit, ResumeUtils, HomeView, MyAccountEditView ){
+    function(Edit, ResumeUtils, MyAccountView, MyAccountEditView, LoginViewTemplate){
         var LoginView = Backbone.View.extend({
             el: "body",
             utils: '',
@@ -24,9 +25,9 @@ define(
             },
             render: function(){
                 this.utils = new ResumeUtils();
-                this.utils.getTheme('login',function(data){
-                    $('#content').html(data);
-                });
+               
+                $('#content').html(LoginViewTemplate);
+                
                 this.delegateEvents(this.events)
 
             },
@@ -168,17 +169,28 @@ define(
 
             },
             redirectView: function(evt){
-                console.log(evt.target)
+                var o_this = this,
+                    data = {username:this.model.get('username')};
                 if(this.flag == 'login'){
 
-                    this.utils.setAppURL('#/user/'+ this.model.get('username'));
+                    var myAccountView = new MyAccountView({
+                        model: userModel
+                    });
+                    myAccountView.render();
+                    //o_this.utils.setAppURL('#/user/'+ o_this.model.get('username'), 'false');
 
                 } else if(this.flag == 'register'){
 
-                    this.utils.setAppURL('#/user/'+ this.model.get('username') +'/edit');
-
+                    var myAccountEditView = new MyAccountEditView({
+                        model: userModel
+                    });
+                    myAccountEditView.render();
                 }
                 $('.simpleAlert, #popupScreen').remove();
+                    
+                
+                
+
             }
         })
         return LoginView;

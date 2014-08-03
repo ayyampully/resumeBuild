@@ -139,7 +139,7 @@ app.post('/login', function(req, res) {
 		console.log('login was successful');
 		req.session.loggedIn = true; 
 		req.session.username = username; 
-		res.send(200, 'Successfully logged in');
+		res.send(200, 'Successfully logged in', success);
 	});
 });
 

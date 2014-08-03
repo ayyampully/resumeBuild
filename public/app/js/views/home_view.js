@@ -29,7 +29,7 @@ define([
         },
 
         render: function(){
-                console.log('m here')
+            console.log('m here')
             if(!this.model){
                 var editModel = new Edit();
                 this.model = editModel;
@@ -42,7 +42,9 @@ define([
             
             $('#content').html(homeViewTemplate);
             $('#content').addClass('home')
-            this.utils.getSession();
+            this.utils.getSession(function(data){
+                cnsole.log(data)
+            });
 
         },
 
@@ -84,6 +86,7 @@ define([
                 model: this.model
             });
             myAccountView.render();
+            //this.utils.setAppURL('#/user/'+ this.model.get('username'), 'false');
         },
 
         saveForm: function(evt){
